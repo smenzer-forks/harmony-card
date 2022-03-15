@@ -98,8 +98,8 @@ export class HarmonyCard extends LitElement {
 
         this.hass?.callService("media_player", command, Object.assign(baseAttributes, attributes || {}));
 
-																											 
-		 
+
+
     }
 
     protected shouldUpdate(changedProps: PropertyValues): boolean {
@@ -187,17 +187,19 @@ export class HarmonyCard extends LitElement {
                 ${this.renderIconButton(buttonConfig['dpad_right'], currentDevice, { 'grid-column': '3', 'grid-row': '2' })}
                 ${this.renderIconButton(buttonConfig['dpad_up'], currentDevice, { 'grid-column': '2', 'grid-row': '1' })}
                 ${this.renderIconButton(buttonConfig['dpad_down'], currentDevice, { 'grid-column': '2', 'grid-row': '3' })}
-                ${this.renderIconButton(buttonConfig['dpad_center'], currentDevice, { 'grid-column': '2', 'grid-row': '2' })}        
-            </div>        
+                ${this.renderIconButton(buttonConfig['dpad_center'], currentDevice, { 'grid-column': '2', 'grid-row': '2' })}
+            </div>
 
             <div class="xbox-buttons">
                 ${this.renderIconButton(buttonConfig['xbox'], currentDevice, { 'grid-column': '1', 'grid-row': '2' })}
                 ${this.renderIconButton(buttonConfig['back'], currentDevice, { 'grid-column': '2', 'grid-row': '2' })}
                 ${this.renderIconButton(buttonConfig['a'], currentDevice, { 'grid-column': '4', 'grid-row': '2' })}
                 ${this.renderIconButton(buttonConfig['b'], currentDevice, { 'grid-column': '5', 'grid-row': '2' })}
-                ${this.renderIconButton(buttonConfig['x'], currentDevice, { 'grid-column': '6', 'grid-row': '2' })}        
-                ${this.renderIconButton(buttonConfig['y'], currentDevice, { 'grid-column': '7', 'grid-row': '2' })}        
+                ${this.renderIconButton(buttonConfig['x'], currentDevice, { 'grid-column': '6', 'grid-row': '2' })}
+                ${this.renderIconButton(buttonConfig['y'], currentDevice, { 'grid-column': '7', 'grid-row': '2' })}
             </div>
+
+            <div style="text-align:center; font-size:0.6em; color: #595959;">Menzer</div>
         </div>
       </ha-card>
     `;
@@ -244,7 +246,7 @@ export class HarmonyCard extends LitElement {
                 label="${label}"
                 @click="${e => this.harmonyCommand(e, command)}"
                 @touchstart="${e => this.preventBubbling(e)}"
-              ></mwc-button>        
+              ></mwc-button>
             `}
         `;
     }
@@ -267,13 +269,13 @@ export class HarmonyCard extends LitElement {
             ${this.renderIconButton(buttonConfig['2'], device, { 'grid-column': '2', 'grid-row': '1' })}
             ${this.renderIconButton(buttonConfig['3'], device, { 'grid-column': '3', 'grid-row': '1' })}
             ${this.renderIconButton(buttonConfig['4'], device, { 'grid-column': '1', 'grid-row': '2' })}
-            ${this.renderIconButton(buttonConfig['5'], device, { 'grid-column': '2', 'grid-row': '2' })}    
+            ${this.renderIconButton(buttonConfig['5'], device, { 'grid-column': '2', 'grid-row': '2' })}
             ${this.renderIconButton(buttonConfig['6'], device, { 'grid-column': '3', 'grid-row': '2' })}
-            ${this.renderIconButton(buttonConfig['7'], device, { 'grid-column': '1', 'grid-row': '3' })}    
+            ${this.renderIconButton(buttonConfig['7'], device, { 'grid-column': '1', 'grid-row': '3' })}
             ${this.renderIconButton(buttonConfig['8'], device, { 'grid-column': '2', 'grid-row': '3' })}
             ${this.renderIconButton(buttonConfig['9'], device, { 'grid-column': '3', 'grid-row': '3' })}
             ${this.renderIconButton(buttonConfig['0'], device, { 'grid-column': '2', 'grid-row': '4' })}
-        </div> 
+        </div>
         `;
     }
 
@@ -285,10 +287,10 @@ export class HarmonyCard extends LitElement {
         var buttonStyles = Object.assign(styles || {}, { color: buttonConfig.color });
 
         return html`
-            <ha-icon-button 
-                icon="${buttonConfig.icon}" 
+            <ha-icon-button
+                icon="${buttonConfig.icon}"
                 style="${styleMap(buttonStyles)}"
-                @click="${e => this.deviceCommand(e, buttonConfig.device || device, buttonConfig.command || '')}" 
+                @click="${e => this.deviceCommand(e, buttonConfig.device || device, buttonConfig.command || '')}"
                 @touchstart="${e => this.preventBubbling(e)}"
             ><ha-icon icon="${buttonConfig.icon}"></ha-icon>
             </ha-icon-button>
@@ -338,7 +340,7 @@ export class HarmonyCard extends LitElement {
                     dir=${'ltr'}
                     ignore-bar-touch pin>
                 </paper-slider>
-                
+
                 <ha-icon-button style="${styleMap(volumeMuteStyle)}" icon="${buttonConfig['volume_mute'].icon}" @click="${e => this.volumeCommand(e, volumeMediaPlayer, 'volume_mute', { is_volume_muted: true })}" @touchstart="${e => this.preventBubbling(e)}"><ha-icon icon="${buttonConfig['volume_mute'].icon}"></ha-icon></ha-icon-button>
             </div>`;
     }
@@ -389,7 +391,7 @@ export class HarmonyCard extends LitElement {
                 background-color: #fce588;
                 padding: 8px;
             }
-            
+
             div {
                 font-size:16px;
             }`,
